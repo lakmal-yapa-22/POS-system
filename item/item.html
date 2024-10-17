@@ -7,49 +7,47 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .container { margin-top: 50px; }
-    .section-card { padding: 30px; }
-
-    /* Custom Button Styles */
-    .btn-custom {
-      background-color: #007bff; /* Primary color */
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+    #searchBtnDiv {
+      display: flex;
     }
 
-    .btn-custom:hover {
-      background-color: #0056b3; /* Darker shade on hover */
-      color: white;
-      text-decoration: none;
+    #searchBtnDiv > select {
+      width: 200px;
+    }
+    #crudBtn {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
-    .btn-custom:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5); /* Focus effect */
+
+    .saveViewBtns {
+      position: absolute;
+      top: -60px;
+      left: 76%;
+      margin: 2px;
     }
 
-    footer {
-      margin-top: 50px;
-      padding: 20px 0;
-      background-color: #f8f9fa;
+    #formInfo > img {
+      margin-left: 10px;
+      margin-top: 5px;
     }
+
+
+    footer { margin-top: 50px; background-color: #343a40; color: white; padding: 10px 0; text-align: center; }
   </style>
 </head>
 <body>
+
 <!-- Header Section -->
 <header class="bg-dark text-white py-3">
   <div class="container">
-    <h1 class="text-center">Lakmal POS System</h1>
+    <h1 class="text-center">POS System</h1>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link" href="../home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="../placeOrder/order.html">Orders</a></li>
-          <li class="nav-item"><a class="nav-link" href="../customer/customerManger.html">Customer</a></li>
+          <li class="nav-item"><a class="nav-link" href="../item/item.html">Item</a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#signupModal" data-bs-toggle="modal">Sign Up</a></li>
@@ -59,65 +57,187 @@
     </nav>
   </div>
 </header>
-<!-- Main Content -->
-<main class="container">
-  <h2 class="text-center mb-4">Manage Store</h2>
 
-  <div class="row">
-    <!-- Add Items Section -->
-    <div class="col-md-4">
-      <div class="card section-card text-center bg-light">
-        <h3 class="card-title">Add Items</h3>
-        <p class="card-text">Add new items to the store inventory.</p>
-        <a href="addItem.html" class="btn btn-custom">Go to Add Item</a>
+<section class="container">
+  <div id="formInfo">
+    <img src="../image/remove-cart.png" id= "itemManageIcon" alt="Bootstrap" width="70">
+    <h2>Item Manage</h2>
+  </div>
+  <div class="card mainDiv">
+    <div class="card-body management-card">
+
+      <!-- Search Item div-->
+      <div class="card searchItemCard">
+        <div class="card-header" id="searchItemCardTitle">
+          Search an Item
+        </div>
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Input Item Name/Code here" aria-label="Recipient's itemname" aria-describedby="basic-addon2">
+            <span class="input-group-text" id="basic-addon2">search</span>
+          </div>
+          <div id="searchBtnDiv">
+            <a href="#" class="btn btn-success">Search</a>&nbsp;&nbsp;
+            <select class="form-select form-select-sm" id="cmbSearchBy" aria-label="Small select example">
+              <option selected>Search By</option>
+              <option value="1">Name</option>
+              <option value="2">Item Code</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Remove Items Section -->
-    <div class="col-md-4">
-      <div class="card section-card text-center bg-light">
-        <h3 class="card-title">Remove Items</h3>
-        <p class="card-text">Remove items from the store inventory.</p>
-        <a href="deleteItem.html" class="btn btn-custom">Go to Remove Item</a>
+      <div id="crudBtn">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#update-item-modal">Update</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal"  data-bs-target="#delete-item-modal">Delete</button>
+        <button type="button" class="btn btn-secondary">Clear</button>
       </div>
-    </div>
+      <div class="btn-group saveViewBtns" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal"  data-bs-target="#save-item-modal">New Item</button>
+        <button type="button" class="btn btn-warning">View All Items</button>
+      </div>
 
-    <!-- Search Items Section -->
-    <div class="col-md-4">
-      <div class="card section-card text-center bg-light">
-        <h3 class="card-title">Search Items</h3>
-        <p class="card-text">Find specific items in the store inventory.</p>
-        <a href="search.html" class="btn btn-custom">Go to Search Item</a>
+      <!-- Table-->
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr class="table-info">
+          <th scope="col">Item Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Qty</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">Drinks</th>
+          <td>Coca Cola</td>
+          <td>140</td>
+          <td>30000</td>
+        </tr>
+        <tr>
+          <th scope="row">Drinks</th>
+          <td>Pepsi</td>
+          <td>150</td>
+          <td>95000</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!--modal for save Item-->
+<div class="modal" tabindex="-1" id="save-item-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Save Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="card saveModalCard">
+        <div class="card-header">
+          Item manage / save
+        </div>
+        <div class="card-body save-item-card">
+          <div class="mb-3 item-code">
+            <label for="saveItemIdField" class="form-label">Item Code</label>
+            <input class="form-control" type="text" value="Item Id" id="saveItemIdField" aria-label="readonly input example" readonly>
+          </div>
+          <div class="mb-3 itemname">
+            <label for="saveItemNameField" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="saveItemNameField" placeholder="product">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="saveItemDescriptionField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="saveItemDescriptionField" placeholder="description">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="saveItemPriceField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="saveItemPriceField" placeholder="Rs.xxx">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="saveItemQtyField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="saveItemQtyField" placeholder="xxxx">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-
-  <div class="row mt-4">
-    <!-- Update Items Section -->
-    <div class="col-md-4">
-      <div class="card section-card text-center bg-light">
-        <h3 class="card-title">Update Items</h3>
-        <p class="card-text">Update details of existing items.</p>
-        <a href="update.html" class="btn btn-custom">Go to Update Item</a>
+</div>
+<!--modal for update Item-->
+<div class="modal" tabindex="-1" id="update-item-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Customer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </div>
-
-    <!-- Get All Items Section -->
-    <div class="col-md-4">
-      <div class="card section-card text-center bg-light">
-        <h3 class="card-title">Get All Items</h3>
-        <p class="card-text">View all items in the store inventory.</p>
-        <a href="allItem.html" class="btn btn-custom">Go to All Items</a>
+      <div class="card saveModalCard">
+        <div class="card-header">
+          Item manage / update
+        </div>
+        <div class="card-body save-item-card">
+          <div class="mb-3 item-code">
+            <label for="saveItemIdField" class="form-label">Item Code</label>
+            <input class="form-control" type="text" value="Item Id" id="updateItemIdField" aria-label="readonly input example" readonly>
+          </div>
+          <div class="mb-3 itemname">
+            <label for="updateItemNameField" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="updateItemNameField" placeholder="Rice">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="updateItemDescriptionField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="updateItemDescriptionField" placeholder="description">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="updateItemPriceField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="updateItemPriceField" placeholder="Rs.xxx">
+          </div>
+          <div class="mb-3 itemDescription">
+            <label for="updateItemQtyField" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="updateItemQtyField" placeholder="xxxx">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-</main>
+</div>
+<!--modal for delete Item-->
+<div class="modal" tabindex="-1" id="delete-item-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Item</h5>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 item-id">
+          <label for="deleteItemIdField" class="form-label">Item ID</label>
+          <input class="form-control" type="text" value="Item Id" id="deleteItemIdField" aria-label="readonly input example" readonly><br>
+          <p>Warning: Deleting this Item will result in data loss.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Footer Section -->
-<footer class="text-center">
-  <p>&copy; 2024 Lakmal POS System</p>
-</footer>
+<footer>
+  <div class="container text-center">
+    <p>&copy; 2024 Lakmal - POS System. All rights reserved.</p>
 
+  </div>
+</footer>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

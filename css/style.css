@@ -1,0 +1,149 @@
+
+footer { margin-bottom: 0; background-color: #ffffff; color: white; padding: 10px 0; text-align: center; }
+
+.container{
+    padding: 20px;
+}
+#searchBtnDiv {
+    display: flex;
+}
+
+.form-select {
+    width: 200px;
+}
+#crudBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.saveViewBtns {
+    position: absolute;
+    top: -70px;
+    left: 76%;
+    margin: 2px;
+}
+
+#itemManageIcon {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+footer {  background-color: #e9ffff; color: white; padding: 10px 0; text-align: center; }
+
+/*customer*/
+body {
+    background: rgb(235,236,255);
+    background: linear-gradient(90deg, rgb(230, 231, 255) 0%, rgb(180, 161, 248) 29%, rgb(255, 210, 255) 64%, rgb(245, 200, 248) 87%);
+
+}
+
+
+/* Form and table card */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgb(235,236,255);
+    background: linear-gradient(90deg, rgba(235,236,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,225,255,1) 64%, rgba(217,219,255,1) 87%);
+
+    padding: 20px;
+}
+
+/* Form buttons */
+.btn-group button {
+    margin-right: 10px;
+}
+
+/* Input highlight */
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #80bdff;
+}
+
+/* Table styles */
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+}
+table tbody tr:nth-child(odd) {
+    background: rgb(235,236,255);
+    background: linear-gradient(90deg, rgba(235,236,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,225,255,1) 64%, rgba(217,219,255,1) 87%);
+
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 10px;
+    background: rgb(235,236,255);
+    background: linear-gradient(90deg, rgba(235,236,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,225,255,1) 64%, rgba(217,219,255,1) 87%);
+
+    color: #ab0ab8;
+    font-weight: 500;
+
+    text-align: center;
+
+}
+
+/* Spacing for small devices */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
+body {
+    background-color: #e9ffff; /* Set background color */
+}
+.image-container {
+    text-align: center; /* Center the image */
+    margin: 20px; /* Add some margin around the container */
+}
+
+.styled-image {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+.btn-padding{
+    margin: 5px;
+}
+#table-display{
+    display: none;
+}
+.red{
+    color:red;
+}
+.bg-gridias {
+    background: rgb(235,236,255);
+    background: linear-gradient(90deg, rgba(235,236,255,1) 0%, rgba(255,255,255,1) 29%, rgba(255,225,255,1) 64%, rgba(217,219,255,1) 87%);
+}
+
+header {
+    padding: 0 20px; /* Optional padding for inner spacing */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    color: navy;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ab0ab8; /* Slightly brighter shade on hover */
+}
+
+h1 {
+    font-size: 1.5rem; /* Adjusted for better fit with logo */
+}
+#header-tittle{
+    color: #ffc107;
+}
+
